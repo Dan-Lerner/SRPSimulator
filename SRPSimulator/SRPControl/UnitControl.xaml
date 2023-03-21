@@ -1,0 +1,107 @@
+﻿<UserControl x:Name="userControl" x:Class="SRPSimulator.UnitControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SRPSimulator"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" DataContext="{Binding Mode=OneWay, RelativeSource={RelativeSource Self}}" SizeChanged="UserControl_SizeChanged" MinWidth="250" MinHeight="300" Background="#FFF9F9F0">
+    <Grid OpacityMask="#FFD40909">
+        <Grid x:Name="Rod" HorizontalAlignment="Left" Height="74" Margin="412,0,0,0" VerticalAlignment="Bottom" Width="8" RenderTransformOrigin="0.5,1">
+            <Rectangle x:Name="Hawser" HorizontalAlignment="Center" Height="74" VerticalAlignment="Center" Width="2" Fill="#FF7A7D7D" RenderTransformOrigin="0.5,1"/>
+            <Grid x:Name="UpperRodJoint" HorizontalAlignment="Center" Height="43" Margin="0,31,0,0" VerticalAlignment="Bottom" Width="8" RenderTransformOrigin="0.5,1">
+                <Rectangle x:Name="PolishedRod" HorizontalAlignment="Center" Width="3" Fill="#FFA1A5A5" RenderTransformOrigin="0.5,1"/>
+                <Rectangle x:Name="Traverse" HorizontalAlignment="Center" Height="2" VerticalAlignment="Top" Width="8" RenderTransformOrigin="0.5,0" Fill="#FF3C3C3C"/>
+            </Grid>
+        </Grid>
+        <Rectangle x:Name="Well" HorizontalAlignment="Left" Height="22" Margin="410,0,0,0" VerticalAlignment="Bottom" Width="12" Fill="Black" RenderTransformOrigin="0.5,1"/>
+        <Grid x:Name="Reductor" HorizontalAlignment="Left" Height="82" VerticalAlignment="Bottom" Width="118" RenderTransformOrigin="0,1">
+            <Rectangle HorizontalAlignment="Center" Height="60" VerticalAlignment="Top" Width="103" Fill="#FF72796F" RadiusX="10" RadiusY="10"/>
+            <Rectangle HorizontalAlignment="Center" Height="40" VerticalAlignment="Bottom" Width="118" Fill="#FFA1A5A5"/>
+        </Grid>
+        <Border x:Name="Beam" HorizontalAlignment="Left" Height="200" Margin="0,0,0,250" VerticalAlignment="Bottom" RenderTransformOrigin="0,0.5" Width="243">
+            <Grid>
+                <Border x:Name="BeamArm" HorizontalAlignment="Left" Margin="0,0,0,100" VerticalAlignment="Bottom" RenderTransformOrigin="0,1" Width="157" Height="47">
+                    <Grid Height="47">
+                        <Rectangle HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="159" Fill="#FF4F6463" RenderTransformOrigin="0.5,0.5" Margin="0,15,0,0">
+                            <Rectangle.BindingGroup>
+                                <BindingGroup/>
+                            </Rectangle.BindingGroup>
+                        </Rectangle>
+                        <Rectangle HorizontalAlignment="Left" Height="5" VerticalAlignment="Top" Width="159" Fill="#FFA6ACAB" Margin="0,10,0,0"/>
+                        <Rectangle HorizontalAlignment="Left" Height="5" Margin="0,42,0,0" VerticalAlignment="Top" Width="159" Fill="#FFA6ACAB"/>
+                    </Grid>
+                </Border>
+                <Path x:Name="BeamEnd" Data="M51.147446,90.5 L10.196059,111.66667 25,180 30,180 z M8.3574258,64.166667 L8.6917228,103.33333 44.795802,84.666667 z M22,19.999998 L12.36899,44 8.1902772,54.166667 51.314594,78.833333 30,19.999998 z M19.999998,0 L30,0 C80.928795,56.940125 80.928795,143.05988 30,200 L19.999998,200 0,110 0,50 z" Fill="#FF9E2E2E" HorizontalAlignment="Right" Height="200" RenderTransformOrigin="1,0.5" Stretch="Fill" VerticalAlignment="Center" Width="68"/>
+            </Grid>
+        </Border>
+        <Path x:Name="BeamEnd1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="732,250,0,0" Fill="#FF9E2E2E" RenderTransformOrigin="0,0.5" Visibility="Hidden" Data="M30,200 A150,150,0,0,0,30,0 L20,0 0,50 0,110 20,200 z M22,20 L30,20 45,75 10,60 10,50 z M25,180 L30,180 45,95 10,111 z"/>
+        <Grid x:Name="BeamHolder" HorizontalAlignment="Left" Height="254" Margin="264,180,0,0" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,1">
+            <Path Data="M92.062687,154.05452 L15.355959,198.25754 99.031185,198.25754 z M23.521251,143.186 L16.591411,187.14386 90.559452,144.51904 90.349293,143.186 z M83.567264,100.16574 L24.971748,133.98511 24.941923,134.17429 88.928623,134.17429 z M31.887432,90.117065 L26.776401,122.53771 82.063633,90.627762 81.983112,90.117065 z M76.602878,55.98877 L33.330353,80.964226 33.308105,81.105354 80.562443,81.105354 z M38.832943,46.059834 L35.13501,69.516815 75.099239,46.450798 75.037601,46.059834 z M70.857143,19.54204 L40.526066,37.048126 73.616932,37.048126 z M44.673485,9.0117035 L42.030998,25.773708 69.353512,10.004068 69.197063,9.0117035 z M36.902897,0 L76.967655,0 76.967655,0.41506502 113.87055,234.5 104.74472,234.5 100.45185,207.26924 13.418691,207.26924 9.1258323,234.5 0,234.5 36.902897,0.41506502 z" Fill="#FF4F6463" HorizontalAlignment="Center" Height="234" Stretch="Fill" VerticalAlignment="Bottom" Width="114"/>
+            <Grid x:Name="BeamAxis" HorizontalAlignment="Center" Height="20" VerticalAlignment="Top">
+                <Path Data="M333.45597,174.8419 L319.77698,184.13858 347.19177,184.13858 z" Fill="#FFA9C3C3" HorizontalAlignment="Center" Height="10" Stretch="Fill" VerticalAlignment="Bottom" Width="30"/>
+                <Ellipse HorizontalAlignment="Center" Height="20" VerticalAlignment="Center" Width="21" OpacityMask="Black" Fill="#FF6F6C6C" RenderTransformOrigin="0.5,0.5">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform X="0"/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <Ellipse HorizontalAlignment="Center" Height="10" VerticalAlignment="Center" Width="10" OpacityMask="Black" Fill="#FF9E2E2E" RenderTransformOrigin="0.5,0.5">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform X="0"/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+            </Grid>
+        </Grid>
+        <Grid x:Name="Pad" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="125,0,0,0" RenderTransformOrigin="0,1">
+            <Rectangle x:Name="Base" HorizontalAlignment="Center" Height="37" VerticalAlignment="Bottom" Width="116" Fill="#FFA1A5A5"/>
+            <Rectangle x:Name="SteelPad" HorizontalAlignment="Center" Height="15" VerticalAlignment="Top" Width="116" Fill="#FF4F6463" RenderTransformOrigin="0.5,1"/>
+        </Grid>
+        <Border x:Name="Crank" HorizontalAlignment="Left" Height="100" Margin="18,0,0,60" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,1">
+            <Grid>
+                <Path Data="M213.6432,350.14977 L213.5,363 274.17167,363.34035 C274.17167,363.34035 274.17166,351.4053 274.17166,351.4053 255.36846,330.92399 236.86424,325.45009 213.6432,350.14977 z" Fill="#FF9D2E2E" HorizontalAlignment="Center" Height="32" Margin="0,9,0,0" Stretch="Fill" VerticalAlignment="Top" Width="122" RenderTransformOrigin="0.5,0.5">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+                <Rectangle x:Name="CrankArm" HorizontalAlignment="Center" Height="100" Width="24" RenderTransformOrigin="0.5,1" Fill="#FF4F6463" VerticalAlignment="Bottom" RadiusX="5" RadiusY="5">
+                    <Rectangle.LayoutTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.LayoutTransform>
+                </Rectangle>
+            </Grid>
+        </Border>
+        <Ellipse x:Name="CrankAxis" HorizontalAlignment="Left" Height="24" Margin="67,0,0,49" VerticalAlignment="Bottom" Width="24" OpacityMask="Black" Fill="#FF6F6C6C" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Rectangle x:Name="ConnectionRod" HorizontalAlignment="Left" Height="120" Margin="185,0,0,93" VerticalAlignment="Bottom" Width="15" Fill="#FFA1A5A5" RenderTransformOrigin="0.5,1"/>
+        <Ellipse x:Name="CRBeamJoint" HorizontalAlignment="Left" Height="20" Margin="182,0,0,205" VerticalAlignment="Bottom" Width="20" Fill="#FF9E2E2E" RenderTransformOrigin="0.5,0.5"/>
+        <Ellipse x:Name="CRCrankJoint" HorizontalAlignment="Left" Height="20" Margin="182,0,0,80" VerticalAlignment="Bottom" Width="20" Fill="#FF9C3030" RenderTransformOrigin="0.5,0.5"/>
+    </Grid>
+</UserControl>
