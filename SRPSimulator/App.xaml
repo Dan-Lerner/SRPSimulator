@@ -1,0 +1,14 @@
+﻿<Application x:Class="SRPSimulator.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SRPSimulator"
+             StartupUri="MainWindow.xaml" Startup="Application_Startup" LoadCompleted="Application_LoadCompleted" Exit="Application_Exit" Deactivated="Application_Deactivated" SessionEnding="Application_SessionEnding">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ControlTemplates/ButtonTemplate.xaml" />
+                <ResourceDictionary Source="ControlTemplates/ToolBarTemplare.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

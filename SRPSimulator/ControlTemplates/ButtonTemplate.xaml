@@ -1,0 +1,86 @@
+﻿<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:SRPSimulator">
+
+    <Style x:Key="ButtonFocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#F3F3F3" Offset="0"/>
+        <GradientStop Color="#EBEBEB" Offset="0.5"/>
+        <GradientStop Color="#DDDDDD" Offset="0.5"/>
+        <GradientStop Color="#CDCDCD" Offset="1"/>
+    </LinearGradientBrush>
+    
+    <SolidColorBrush x:Key="ButtonNormalBorder" Color="#FF707070"/>
+
+    <Path x:Key="IconStart" x:Shared="False" Stretch="Uniform" Fill="#FFFFFF" Data="M13.999998,11 L33.999998,20.589233 14.256344,31 z M21,3 C11.058874,3 3,11.058874 3,21 3,30.941126 11.058874,39 21,39 30.941126,39 39,30.941126 39,21 39,11.058874 30.941126,3 21,3 z M21,0 C32.59798,0 42,9.4020205 42,21 42,32.59798 32.59798,42 21,42 9.4020205,42 0,32.59798 0,21 0,9.4020205 9.4020205,0 21,0 z" />
+    <Path x:Key="IconPause" x:Shared="False" Stretch="Uniform" Fill="#FFFFFF" Data="M23,10 L29,10 29,31 23,31 z M13,10 L19,10 19,31 13,31 z M21,2.9999998 C11.058874,3 3,11.058874 2.9999998,21 3,30.941126 11.058874,39 21,39 30.941126,39 39,30.941126 39,21 39,11.058874 30.941126,3 21,2.9999998 z M21,0 C32.59798,0 42,9.4020205 42,21 42,32.59798 32.59798,42 21,42 9.4020205,42 0,32.59798 0,21 0,9.4020205 9.4020205,0 21,0 z" />
+    <Path x:Key="IconCycle" x:Shared="False" Stretch="Uniform" Fill="#FFFFFF" Data="M21.5,8 C28.403559,8 34,13.629243 34,20.573265 34,23.828276 32.770313,26.794395 30.752726,29.027245 L30.748468,29.031845 27.816504,26.29335 28.059013,26.011747 C29.271587,24.533834 30,22.639112 30,20.573265 30,15.85133 26.19442,12.023445 21.5,12.023445 16.80558,12.023445 13,15.85133 13,20.573265 13,22.768229 13.822309,24.770006 15.173959,26.283911 L15.262764,26.380877 18.875,23 21,35 9,32.242512 12.334588,29.121504 12.196999,28.971272 C10.209277,26.74494 9,23.801151 9,20.573265 9,13.629243 14.596441,8 21.5,8 z M21,2.9999998 C11.058874,3 3,11.058874 2.9999998,21 3,30.941126 11.058874,39 21,39 30.941126,39 39,30.941126 39,21 39,11.058874 30.941126,3 21,2.9999998 z M21,0 C32.59798,0 42,9.4020205 42,21 42,32.59798 32.59798,42 21,42 9.4020205,42 0,32.59798 0,21 0,9.4020205 9.4020205,0 21,0 z" />
+    <Path x:Key="IconStop" x:Shared="False" Stretch="Uniform" Fill="#FFFFFF" Data="M13,13 L31,13 31,31 13,31 z M21.5,3.5 C11.558874,3.5 3.5,11.558874 3.5,21.5 3.5,31.441126 11.558874,39.5 21.5,39.5 31.441126,39.5 39.5,31.441126 39.5,21.5 39.5,11.558874 31.441126,3.5 21.5,3.5 z M21.5,0.5 C33.09798,0.5 42.5,9.9020205 42.5,21.5 42.5,33.09798 33.09798,42.5 21.5,42.5 9.9020205,42.5 0.5,33.09798 0.5,21.5 0.5,9.9020205 9.9020205,0.5 21.5,0.5 z" />
+
+    <Style x:Key="{x:Static ToolBar.ButtonStyleKey}" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+        <Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate  TargetType="{x:Type Button}">
+                    <Border x:Name="Base" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                        <StackPanel >
+                            <ContentControl 
+								Content="{Binding (local:ButtonExtension.Icon), RelativeSource={RelativeSource TemplatedParent}}"
+								Width="22"
+								Height="22"
+                                IsTabStop="False"
+								x:Name="IconContent" Margin="2,2,2,0" RenderTransformOrigin="0.5,0.5" >
+                                <ContentControl.Effect>
+                                    <DropShadowEffect Opacity="0" BlurRadius="4"/>
+                                </ContentControl.Effect>
+                                <ContentControl.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ContentControl.RenderTransform>
+                            </ContentControl>
+                            <TextBlock x:Name="textBlock" Margin="2,0,2,2" TextWrapping="Wrap" Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="Base" Property="Opacity" Value="0.8" />
+                            <Setter TargetName="Base" Property="Background" Value="{StaticResource ButtonNormalBackground}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="Base" Property="Background" Value="LightGray" />
+                            <Setter TargetName="Base" Property="BorderBrush" Value="DarkGray" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                        </Trigger>
+                        <Trigger Property="ToggleButton.IsChecked" Value="true">
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
